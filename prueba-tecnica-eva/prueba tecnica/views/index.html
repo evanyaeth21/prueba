@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <!-- <a class="navbar-brand" href="#">Brand</a> -->
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+
+                <button id="signOut" class="btn btn-outline-danger" type="button" data-mdb-ripple-color="dark">
+                    Cerrar sesión
+                </button>
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+    <div class="container mt-5">
+        <!-- Pills navs -->
+        <ul class="nav nav-pills nav-justified mb-" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#register" role="tab"
+                    aria-controls="pills-login" aria-selected="true">Registro de incapacidad</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#visualizacion" role="tab"
+                    aria-controls="pills-register" aria-selected="false">Visuaización</a>
+            </li>
+        </ul>
+        <!-- Pills navs -->
+        <!-- Pills content -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="register" role="tabpanel" aria-labelledby="tab-register">
+                <!-- Message input -->
+                <div class="form-outline mb-4">
+                    <textarea class="form-control" id="motivo" rows="4"></textarea>
+                    <label class="form-label" for="motivo">Motivo de la incapacidad</label>
+                </div>
+                <span>Fecha de inicio</span>
+                <div class="form-outline mb-4">
+                    <input type="date" id="fechaInicio" class="form-control" />
+                    <!-- <label class="form-label" for="fechaInicio"></label> -->
+                </div>
+                <span>Fecha de fin</span>
+                <div class="form-outline mb-4">
+                    <input type="date" id="fechaFin" class="form-control" />
+                    <!-- <label class="form-label" for="fechaFin"></label> -->
+                </div>
+                <div class="mb-4">
+                    <label class="form-label" for="customFile">Adjuntar documento o foto de incapacidad</label>
+                    <input type="file" class="form-control" id="customFile" />
+                </div>
+                <!-- Submit button -->
+                <div id="loading">
+                    <button type="button" id="registrar"
+                        class="btn btn-success btn-rounded btn-block mb-3">Guardar</button>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="visualizacion" role="tabpanel" aria-labelledby="tab-visualizacion">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha inicio</th>
+                            <th scope="col">Fecha fin</th>
+                            <th scope="col">Documento</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+    <script src="../db/register.js"></script>
+</body>
+
+</html>

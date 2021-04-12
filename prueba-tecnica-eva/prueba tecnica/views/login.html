@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Pills navs -->
+        <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                    aria-controls="pills-login" aria-selected="true">Login</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                    aria-controls="pills-register" aria-selected="false">Register</a>
+            </li>
+        </ul>
+        <!-- Pills navs -->
+
+        <!-- Pills content -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="email" id="loginName" class="form-control" required />
+                    <label class="form-label" for="loginName">Email</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" id="loginPassword" class="form-control" required />
+                    <label class="form-label" for="loginPassword">Contraseña</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="button" id="login" class="btn btn-primary btn-rounded btn-block mb-4">Ingresar</button>
+            </div>
+            <!-- esto es el codigo de registrar -->
+            <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="email" id="registerEmail" class="form-control" />
+                    <label class="form-label" for="registerEmail">Email</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" id="registerPassword" class="form-control" />
+                    <label class="form-label" for="registerPassword">Contraseña</label>
+                </div>
+
+                <!-- Repeat Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" id="registerRepeatPassword" class="form-control" />
+                    <label class="form-label" for="registerRepeatPassword">Repita contraseña</label>
+                </div>
+
+                <select id="registerSelect" class="form-select mb-4" aria-label="Default select example">
+                    <option value="null" selected>Seleccione tipo de usuario</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="usuario">Usuario</option>
+                </select>
+                <!-- Submit button -->
+                <button id="registerUserOne" type="button"
+                    class="btn btn-success btn-rounded btn-block mb-3">Registrar</button>
+            </div>
+        </div>
+        <!-- Pills content -->
+    </div>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+    <script src="../db/login.js"></script>
+</body>
+
+</html>
