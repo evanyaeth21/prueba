@@ -8,16 +8,50 @@ var firebaseConfig = {
 };
 //Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// sing in 
+const db = firebase.firestore()
+
+const arrayUsers = []
+
+function getUsers() {
+    db.collection("users").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            arrayUsers.push(doc.data())
+        })
+    })
+}
+
+getUsers()
+
+function validateUser(){
+    const email = document.getElementById("loginName").value
+    let res = {}
+    for(i = 0; i < arrayUsers.length; i++){
+        if(email === arrayUsers[i].gmail){
+            res = {
+                roll: arrayUsers[i].roll
+            }
+            break
+        }
+    }
+    return res
+}
+
 function signIn() {
     const email = document.getElementById("loginName").value
     const password = document.getElementById("loginPassword").value
-    if (!email.length || !password.length) {
+    const result = validateUser()
+    if (!email.length || !password.length ) {
         alert("Los campos estan vacios")
     } else {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(() => {
-                window.location.replace("index.html");
+                if(result.roll === "administrador"){
+                    window.location.replace("admin.html");
+                }else if(result.roll === "usuario"){
+                    window.location.replace("index.html");
+                } else {
+                    console.log("algo salío mal")
+                }
             })
             .catch(error => {
                 let errorCode = error.code;
@@ -27,7 +61,6 @@ function signIn() {
     }
 }
 
-// register user
 function registerUser() {
     const registerEmail = document.getElementById("registerEmail").value
     const registerPassword = document.getElementById("registerPassword").value
@@ -51,6 +84,11 @@ function registerUser() {
                 document.getElementById("registerPassword").value = ""
                 document.getElementById("registerRepeatPassword").value = ""
                 document.getElementById("registerSelect").value = "Seleccione tipo de usuario"
+                db.collection("users").add({
+                    gmail: registerEmail,
+                    roll: registerSelect
+                })
+                getUsers()
                 alert("Creado con exíto")
                 // ...
             })
@@ -62,7 +100,6 @@ function registerUser() {
             });
     }
 }
-
 document.getElementById("login").addEventListener("click", () => signIn())
 
 document.getElementById("registerUserOne").addEventListener("click", () => registerUser())
