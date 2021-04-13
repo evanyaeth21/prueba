@@ -53,21 +53,8 @@
     <!-- Navbar -->
 
     <div class="container mt-5">
-        <!-- Pills navs -->
-        <ul class="nav nav-pills nav-justified mb-" id="ex1" role="tablist">
-            <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#register" role="tab"
-                    aria-controls="pills-login" aria-selected="true">Registro de incapacidad</a>
-            </li>
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#visualizacion" role="tab"
-                    aria-controls="pills-register" aria-selected="false">Visuaización</a>
-            </li>
-        </ul>
-        <!-- Pills navs -->
-        <!-- Pills content -->
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="register" role="tabpanel" aria-labelledby="tab-register">
+        <div class="row mt-5" id="register">
+            <div class="col-md-12 mt-5">
                 <!-- Message input -->
                 <div class="form-outline mb-4">
                     <textarea class="form-control" id="motivo" rows="4"></textarea>
@@ -92,21 +79,6 @@
                     <button type="button" id="registrar"
                         class="btn btn-success btn-rounded btn-block mb-3">Guardar</button>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="visualizacion" role="tabpanel" aria-labelledby="tab-visualizacion">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Fecha inicio</th>
-                            <th scope="col">Fecha fin</th>
-                            <th scope="col">Documento</th>
-                            <th scope="col">Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tblBody">
-
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

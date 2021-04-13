@@ -71,12 +71,6 @@ function registerUser() {
     } else if (registerPassword != repeatPassword) {
         alert("la contraseña no coincide")
     } else {
-        console.log({
-            email: registerEmail,
-            password: registerPassword,
-            repeatPassword: repeatPassword,
-            registerSelect: registerSelect
-        })
         firebase.auth().createUserWithEmailAndPassword(registerEmail, registerPassword)
             .then((userCredential) => {
                 // Signed in

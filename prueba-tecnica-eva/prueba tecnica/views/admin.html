@@ -52,7 +52,21 @@
     </nav>
     <!-- Navbar -->
     <div class="container mt-5">
-        <h1>Admin</h1>
+        <div class="row mt-5" id="visualizacion" >
+            <div class="col-md-12 mt-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha inicio</th>
+                            <th scope="col">Fecha fin</th>
+                            <th scope="col">Documento</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblBody"></tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
     <script src="../db/admin.js"></script>
